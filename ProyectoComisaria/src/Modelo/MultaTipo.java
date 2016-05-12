@@ -1,7 +1,7 @@
 package Modelo;
 
 public class MultaTipo {
-
+    
     private Integer id;
     private String descripcion;
     private Double importe;
