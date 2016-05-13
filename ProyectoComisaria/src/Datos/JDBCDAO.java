@@ -17,18 +17,10 @@ public class JDBCDAO {
     static String password = "root";
     static String url = "jdbc:mysql://localhost:3306/" + bd;
 
-    public boolean crearConexion() {
-        boolean resultado = false;
-
-        try {
-            conexion = DriverManager.getConnection(url, login, password);
-            if (conexion != null) {
-                resultado = true;
-
-            }
-        } catch (SQLException ex) {
+    public JDBCDAO(Connection conexion) throws SQLException {
+        conexion = DriverManager.getConnection(url, login, password);
+        if (conexion != null) {
 
         }
-        return resultado;
     }
 }
