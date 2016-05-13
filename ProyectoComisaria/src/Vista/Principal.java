@@ -5,6 +5,11 @@
  */
 package Vista;
 
+import Datos.JDBCDAO;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author daw1
@@ -16,6 +21,11 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
+        try {
+            JDBCDAO dao = new JDBCDAO();
+        } catch (SQLException ex) {
+
+        }
     }
 
     /**
