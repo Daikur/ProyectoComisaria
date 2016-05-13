@@ -5,6 +5,7 @@
  */
 package Datos;
 
+import Modelo.Multa;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -22,5 +23,14 @@ public class JDBCDAO {
         if (conexion != null) {
 
         }
+    }
+    public boolean introducirMulta(Multa m){
+        boolean resultado = false;
+        
+        
+        
+        
+        return resultado;
+        
     }
 }
