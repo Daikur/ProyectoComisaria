@@ -8,6 +8,7 @@ package Datos;
 import Modelo.Multa;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class JDBCDAO {
@@ -24,13 +25,27 @@ public class JDBCDAO {
 
         }
     }
-    public boolean introducirMulta(Multa m){
+
+    public boolean introducirMulta(Multa m) throws SQLException {
         boolean resultado = false;
-        
-        
-        
-        
+
+//                PreparedStatement ps = conn.prepareStatement(consulta);
+        //INSERT
+        String sql = "INSERT INTO comisaria (id,descripcion,fecha,importe,idpolicia,nifinfractor,idtipo) VALUES (?,?,?,?,?,?,?)";
+        PreparedStatement psInsertarMultas = conexion.prepareStatement(sql);
+
+        psInsertarMultas.setInt(1, m.getId());
+        psInsertarMultas.setString(2, m.getDescripcion());
+        psInsertarMultas.setDate(3, m.getFecha());
+        psInsertarMultas.setDouble(4, m.getImporte());
+        psInsertarMultas.setInt(5, m.getIdpolicia());
+        psInsertarMultas.setInt(6, m.getIdtipo());
+//                
+        int numFilas = psInsertarMultas.executeUpdate();
+        if (numFilas != 0 ){
+            resultado = true;
+        }
         return resultado;
-        
+
     }
 }
