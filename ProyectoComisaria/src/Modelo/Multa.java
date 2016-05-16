@@ -1,12 +1,13 @@
 package Modelo;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 public class Multa {
 
     private String descripcion;
-    private LocalDate fecha;
+    private Date fecha;
     private Double importe;
     private List<String> idPolicia;
     private String nifinfractor;
@@ -28,11 +29,11 @@ public class Multa {
         this.descripcion = descripcion;
     }
 
-    public LocalDate getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(LocalDate fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 

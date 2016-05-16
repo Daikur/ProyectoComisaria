@@ -9,7 +9,9 @@ import Modelo.Multa;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 public class JDBCDAO {
 
@@ -39,12 +41,25 @@ public class JDBCDAO {
         psInsertarMultas.setDouble(3, m.getImporte());
         psInsertarMultas.setString(4, m.getIdPolicia().toString());
         psInsertarMultas.setInt(5, m.getIdtipo());
-                
+
         int numFilas = psInsertarMultas.executeUpdate();
-        if (numFilas != 0 ){
+        if (numFilas != 0) {
             resultado = true;
         }
         return resultado;
 
+    }
+
+    public List<String> consultarIDPolicia() throws SQLException {
+        List<String> listaPolicia = null;
+        String sql = "Select nombre, numplaca from policia";
+        PreparedStatement psSelectPolicia = conexion.prepareStatement(sql);
+
+        ResultSet rs = psSelectPolicia.executeQuery();
+
+        while (rs.next()) {
+            listaPolicia.add(rs.getString("numplaca") + " " + rs.getString("nombre"));
+        }
+        return listaPolicia;
     }
 }
