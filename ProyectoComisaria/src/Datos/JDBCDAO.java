@@ -32,7 +32,7 @@ public class JDBCDAO {
     public boolean introducirMulta(Multa m) throws SQLException {
         boolean resultado = false;
 
-//                PreparedStatement ps = conn.prepareStatement(consulta);
+//      PreparedStatement ps = conn.prepareStatement(consulta);
         //INSERT
         String sql = "INSERT INTO comisaria (descripcion,fecha,importe,idpolicia,nifinfractor,idtipo) VALUES (?,2016/05/16,?,?,?,?)";
         PreparedStatement psInsertarMultas = conexion.prepareStatement(sql);
@@ -62,8 +62,8 @@ public class JDBCDAO {
         while (rs.next()) {
             nombre = rs.getString("nombre");
             numplaca = rs.getString("numplaca");
-//            System.out.println(nombre + " " + numplaca);
-            listaPolicia.add(nombre);
+         
+            listaPolicia.add(nombre+" - "+numplaca);
         }
         return listaPolicia;
     }
@@ -71,14 +71,13 @@ public class JDBCDAO {
     public List<Integer> consultarTipo() throws SQLException {
         List<Integer> listaTipo = new ArrayList<>();
         Integer num;
-        String sql = "Select idtipo from multas";
+        String sql = "Select Distinct(idtipo) from multas";
         PreparedStatement psSelectPolicia = conexion.prepareStatement(sql);
 
         ResultSet rs = psSelectPolicia.executeQuery();
 
         while (rs.next()) {
             num = rs.getInt("idtipo");
-//            System.out.println(nombre + " " + numplaca);
             listaTipo.add(num);
         }
         return listaTipo;

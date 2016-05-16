@@ -9,8 +9,6 @@ import Datos.JDBCDAO;
 import Modelo.Multa;
 import java.sql.SQLException;
 import java.util.List;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import javax.swing.DefaultListModel;
 
@@ -29,12 +27,12 @@ public class MultasIntroducir extends javax.swing.JDialog {
         this.dao = dao;
         DefaultListModel valores = new DefaultListModel();
         this.listPolicia.setModel(valores);
-        for(String valor : dao.consultarIDPolicia()){
+        for (String valor : dao.consultarIDPolicia()) {
             valores.addElement(valor);
         }
-        for(Integer num : dao.consultarTipo()){
+        for (Integer num : dao.consultarTipo()) {
             this.bTipo.addItem(num.toString());
-        }      
+        }
     }
 
     /**
@@ -106,7 +104,6 @@ public class MultasIntroducir extends javax.swing.JDialog {
         jLabel2.setText("Tipo");
 
         bTipo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        bTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Importe");
