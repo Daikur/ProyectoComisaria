@@ -31,16 +31,15 @@ public class JDBCDAO {
 
 //                PreparedStatement ps = conn.prepareStatement(consulta);
         //INSERT
-        String sql = "INSERT INTO comisaria (id,descripcion,fecha,importe,idpolicia,nifinfractor,idtipo) VALUES (?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO comisaria (descripcion,fecha,importe,idpolicia,nifinfractor,idtipo) VALUES (?,2016/05/16,?,?,?,?)";
         PreparedStatement psInsertarMultas = conexion.prepareStatement(sql);
-
-        psInsertarMultas.setInt(1, m.getId());
-        psInsertarMultas.setString(2, m.getDescripcion());
-        psInsertarMultas.setDate(3, m.getFecha());
-        psInsertarMultas.setDouble(4, m.getImporte());
-        psInsertarMultas.setInt(5, m.getIdpolicia());
-        psInsertarMultas.setInt(6, m.getIdtipo());
-//                
+//        psInsertarMultas.setInt(1, m.getId());
+        psInsertarMultas.setString(1, m.getDescripcion());
+//        psInsertarMultas.setDate(2, "2016/05/16");
+        psInsertarMultas.setDouble(3, m.getImporte());
+        psInsertarMultas.setString(4, m.getIdPolicia().toString());
+        psInsertarMultas.setInt(5, m.getIdtipo());
+                
         int numFilas = psInsertarMultas.executeUpdate();
         if (numFilas != 0 ){
             resultado = true;

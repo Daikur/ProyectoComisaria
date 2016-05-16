@@ -1,34 +1,25 @@
 package Modelo;
 
-import java.sql.Date;
+import java.time.LocalDate;
+import java.util.List;
 
 public class Multa {
-    private Integer id;
+
     private String descripcion;
-    private Date fecha;
+    private LocalDate fecha;
     private Double importe;
-    private Integer idpolicia;
-    private Integer nifinfractor;
+    private List<String> idPolicia;
+    private String nifinfractor;
     private Integer idtipo;
 
-    public Multa(Integer id, String descripcion, Date fecha, Double importe, Integer idpolicia, Integer nifinfractor, Integer idtipo) {
-        this.id = id;
+    public Multa(String descripcion, Double importe, List<String> idPolicia, String nifinfractor, Integer idtipo) {
         this.descripcion = descripcion;
-        this.fecha = fecha;
         this.importe = importe;
-        this.idpolicia = idpolicia;
+        this.idPolicia = idPolicia;
         this.nifinfractor = nifinfractor;
         this.idtipo = idtipo;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-    
     public String getDescripcion() {
         return descripcion;
     }
@@ -37,11 +28,11 @@ public class Multa {
         this.descripcion = descripcion;
     }
 
-    public Date getFecha() {
+    public LocalDate getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
 
@@ -53,19 +44,11 @@ public class Multa {
         this.importe = importe;
     }
 
-    public Integer getIdpolicia() {
-        return idpolicia;
-    }
-
-    public void setIdpolicia(Integer idpolicia) {
-        this.idpolicia = idpolicia;
-    }
-
-    public Integer getNifinfractor() {
+    public String getNifinfractor() {
         return nifinfractor;
     }
 
-    public void setNifinfractor(Integer nifinfractor) {
+    public void setNifinfractor(String nifinfractor) {
         this.nifinfractor = nifinfractor;
     }
 
@@ -75,5 +58,13 @@ public class Multa {
 
     public void setIdtipo(Integer idtipo) {
         this.idtipo = idtipo;
-    } 
+    }
+
+    public List<String> getIdPolicia() {
+        return idPolicia;
+    }
+
+    public void setIdPolicia(List<String> idPolicia) {
+        this.idPolicia = idPolicia;
+    }
 }

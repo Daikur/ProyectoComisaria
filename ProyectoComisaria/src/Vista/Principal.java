@@ -22,7 +22,7 @@ public class Principal extends javax.swing.JFrame {
     public Principal() {
         initComponents();
         try {
-            JDBCDAO dao = new JDBCDAO();
+            dao = new JDBCDAO();
         } catch (SQLException ex) {
 
         }
@@ -142,7 +142,7 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bMultasIntroducirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMultasIntroducirActionPerformed
-        MultasIntroducir mi = new MultasIntroducir(this, true);
+        MultasIntroducir mi = new MultasIntroducir(this, true, dao);
 //        mi.setEnabled(true);
         mi.setVisible(true);
     }//GEN-LAST:event_bMultasIntroducirActionPerformed
@@ -150,7 +150,6 @@ public class Principal extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton MultasListado;
@@ -162,4 +161,5 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel panelDialog;
     private javax.swing.JPanel panelMenu;
     // End of variables declaration//GEN-END:variables
+    private JDBCDAO dao;
 }
