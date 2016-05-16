@@ -28,7 +28,7 @@ public class MultasIntroducir extends javax.swing.JDialog {
         initComponents();
         this.dao = dao;
         DefaultListModel valores = new DefaultListModel();
-         this.listPolicia.setModel(valores);
+        this.listPolicia.setModel(valores);
         for(String valor : dao.consultarIDPolicia()){
             valores.addElement(valor);
         }    
@@ -146,7 +146,6 @@ public class MultasIntroducir extends javax.swing.JDialog {
                             .addComponent(jLabel6))))
                 .addGap(53, 53, 53)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -161,7 +160,8 @@ public class MultasIntroducir extends javax.swing.JDialog {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                                .addComponent(sImporte, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(sImporte, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(63, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -225,20 +225,18 @@ public class MultasIntroducir extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarActionPerformed
-        
+
         descripcion = this.taDescripcion.getText();
         fecha = this.jCalendarFecha.getDate();
         importe = Double.parseDouble((String) this.sImporte.getValue());
         idpolicia = this.listPolicia.getSelectedValuesList();
         nifInfractor = this.tfNifInf.getText();
         idtipo = Integer.parseInt((String) this.bTipo.getSelectedItem());
-        
-        Multa m = new Multa(descripcion,importe,idpolicia,nifInfractor,idtipo);
+
+        Multa m = new Multa(descripcion, importe, idpolicia, nifInfractor, idtipo);
 
     }//GEN-LAST:event_botonGuardarActionPerformed
 
-            
-   
     /**
      * @param args the command line arguments
      */

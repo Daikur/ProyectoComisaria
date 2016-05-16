@@ -11,6 +11,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class JDBCDAO {
@@ -51,14 +52,18 @@ public class JDBCDAO {
     }
 
     public List<String> consultarIDPolicia() throws SQLException {
-        List<String> listaPolicia = null;
+        List<String> listaPolicia = new ArrayList<>();
+        String nombre, numplaca;
         String sql = "Select nombre, numplaca from policia";
         PreparedStatement psSelectPolicia = conexion.prepareStatement(sql);
 
         ResultSet rs = psSelectPolicia.executeQuery();
 
         while (rs.next()) {
-            listaPolicia.add(rs.getString("numplaca") + " " + rs.getString("nombre"));
+            nombre = rs.getString("nombre");
+            numplaca = rs.getString("numplaca");
+//            System.out.println(nombre + " " + numplaca);
+            listaPolicia.add(nombre);
         }
         return listaPolicia;
     }

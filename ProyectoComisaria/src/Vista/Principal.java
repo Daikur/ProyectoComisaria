@@ -142,9 +142,14 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bMultasIntroducirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bMultasIntroducirActionPerformed
-        MultasIntroducir mi = new MultasIntroducir(this, true, dao);
-//        mi.setEnabled(true);
-        mi.setVisible(true);
+        MultasIntroducir mi;
+        try {
+            mi = new MultasIntroducir(this, true, dao);
+            mi.setVisible(true);
+        } catch (SQLException ex) {
+//            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_bMultasIntroducirActionPerformed
 
     /**
