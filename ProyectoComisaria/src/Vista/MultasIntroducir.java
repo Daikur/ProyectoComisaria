@@ -227,7 +227,7 @@ public class MultasIntroducir extends javax.swing.JDialog {
     private void botonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarActionPerformed
 
         descripcion = this.taDescripcion.getText();
-        fecha = this.jCalendarFecha.getDate();
+        //fecha = this.jCalendarFecha.getDate();
         importe = Double.parseDouble((String) this.sImporte.getValue());
         idpolicia = this.listPolicia.getSelectedValuesList();
         nifInfractor = this.tfNifInf.getText();
