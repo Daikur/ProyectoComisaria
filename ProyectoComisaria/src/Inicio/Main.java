@@ -10,8 +10,6 @@ public class Main {
         Principal principal = new Principal();
         principal.setVisible(true);
         JDBCDAO dao = new JDBCDAO();
-        
-        System.out.println(dao.consultarIDPolicia());
     }
     
 }

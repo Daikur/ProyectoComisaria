@@ -31,7 +31,10 @@ public class MultasIntroducir extends javax.swing.JDialog {
         this.listPolicia.setModel(valores);
         for(String valor : dao.consultarIDPolicia()){
             valores.addElement(valor);
-        }    
+        }
+        for(Integer num : dao.consultarTipo()){
+            this.bTipo.addItem(num.toString());
+        }      
     }
 
     /**

@@ -67,4 +67,22 @@ public class JDBCDAO {
         }
         return listaPolicia;
     }
+
+    public List<Integer> consultarTipo() throws SQLException {
+        List<Integer> listaTipo = new ArrayList<>();
+        Integer num;
+        String sql = "Select idtipo from multas";
+        PreparedStatement psSelectPolicia = conexion.prepareStatement(sql);
+
+        ResultSet rs = psSelectPolicia.executeQuery();
+
+        while (rs.next()) {
+            num = rs.getInt("idtipo");
+//            System.out.println(nombre + " " + numplaca);
+            listaTipo.add(num);
+        }
+        return listaTipo;
+
+    }
+
 }
