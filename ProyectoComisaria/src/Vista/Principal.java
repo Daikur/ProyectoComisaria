@@ -56,11 +56,10 @@ public class Principal extends javax.swing.JFrame {
         setResizable(false);
         setSize(new java.awt.Dimension(100, 100));
 
-        bPoliciasMantenimiento.setText("PoliciasMante");
+        bPoliciasMantenimiento.setIcon(new javax.swing.ImageIcon("C:\\Users\\daw1\\Documents\\NetBeansProjects\\ProyectoComisaria\\ProyectoComisaria\\images and icons\\iconoPruebaPrincipal.png")); // NOI18N
 
         labUser.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
-        bMultasIntroducir.setIcon(new javax.swing.ImageIcon("C:\\Users\\Surfer\\Documents\\NetBeansProjects\\ProyectoComisaria\\ProyectoComisaria\\images and icons\\iconoPruebaPrincipal.png")); // NOI18N
         bMultasIntroducir.setText("MultasIntroducir");
         bMultasIntroducir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,9 +115,9 @@ public class Principal extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelMenuLayout.createSequentialGroup()
-                        .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(bPoliciasMantenimiento, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                            .addComponent(bMultasIntroducir, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(bMultasIntroducir, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bPoliciasMantenimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)

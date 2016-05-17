@@ -69,9 +69,9 @@
                           <Component id="jButton2" min="-2" pref="250" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="bPoliciasMantenimiento" pref="250" max="32767" attributes="0"/>
-                              <Component id="bMultasIntroducir" pref="0" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="bMultasIntroducir" min="-2" pref="283" max="-2" attributes="0"/>
+                              <Component id="bPoliciasMantenimiento" min="-2" pref="247" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jButton1" min="-2" pref="120" max="-2" attributes="0"/>
@@ -112,7 +112,9 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="bPoliciasMantenimiento">
           <Properties>
-            <Property name="text" type="java.lang.String" value="PoliciasMante"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="2" name="C:\Users\daw1\Documents\NetBeansProjects\ProyectoComisaria\ProyectoComisaria\images and icons\iconoPruebaPrincipal.png"/>
+            </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="labUser">
@@ -124,9 +126,6 @@
         </Component>
         <Component class="javax.swing.JButton" name="bMultasIntroducir">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Surfer\Documents\NetBeansProjects\ProyectoComisaria\ProyectoComisaria\images and icons\iconoPruebaPrincipal.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="MultasIntroducir"/>
           </Properties>
           <Events>

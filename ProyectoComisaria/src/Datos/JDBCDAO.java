@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JDBCDAO {
+    private String nombrePolicia, numplacaPolicia;
 
     Connection conexion;
     static String bd = "Comisaria";
@@ -34,13 +35,14 @@ public class JDBCDAO {
 
 //      PreparedStatement ps = conn.prepareStatement(consulta);
         //INSERT
-        String sql = "INSERT INTO comisaria (descripcion,fecha,importe,idpolicia,nifinfractor,idtipo) VALUES (?,2016/05/16,?,?,?,?)";
+        String sql = "INSERT INTO comisaria (descripcion,importe,idpolicia,nifinfractor,idtipo) VALUES (?,?,?,?,?)";
         PreparedStatement psInsertarMultas = conexion.prepareStatement(sql);
 //        psInsertarMultas.setInt(1, m.getId());
         psInsertarMultas.setString(1, m.getDescripcion());
 //        psInsertarMultas.setDate(2, "2016/05/16");
-        psInsertarMultas.setDouble(3, m.getImporte());
-        psInsertarMultas.setString(4, m.getIdPolicia().toString());
+        psInsertarMultas.setDouble(2, m.getImporte());
+        psInsertarMultas.setInt(3, this.extraerIdPolicia(this.nombrePolicia, this.numplacaPolicia));
+        psInsertarMultas.setString(4, m.getNifinfractor());
         psInsertarMultas.setInt(5, m.getIdtipo());
 
         int numFilas = psInsertarMultas.executeUpdate();
@@ -52,20 +54,21 @@ public class JDBCDAO {
     }
 
     public List<String> consultarIDPolicia() throws SQLException {
-        List<String> listaPolicia = new ArrayList<>();
+        List<String> listaPolicias = new ArrayList<>();
         String nombre, numplaca;
         String sql = "Select nombre, numplaca from policia";
         PreparedStatement psSelectPolicia = conexion.prepareStatement(sql);
 
         ResultSet rs = psSelectPolicia.executeQuery();
 
-        while (rs.next()) {
-            nombre = rs.getString("nombre");
-            numplaca = rs.getString("numplaca");
-         
-            listaPolicia.add(nombre+" - "+numplaca);
+        nombre = rs.getString("nombre");
+        numplaca = rs.getString("nurmplaca");
+
+        while(rs.next()){
+            listaPolicias.add(nombre + " - " + numplaca);
         }
-        return listaPolicia;
+
+        return listaPolicias;
     }
 
     public List<Integer> consultarTipo() throws SQLException {
@@ -82,6 +85,20 @@ public class JDBCDAO {
         }
         return listaTipo;
 
+    }
+
+    public Integer extraerIdPolicia(String nombre, String numplaca) throws SQLException {
+        Integer idPolicia = 0;
+        String sql = "Select idpolicia from policias where nombre = ? and numplaca = ?";
+        PreparedStatement psExtraerPolicia = conexion.prepareStatement(sql);
+        psExtraerPolicia.setString(1, nombre);
+        psExtraerPolicia.setString(2, numplaca);
+
+        ResultSet rs = psExtraerPolicia.executeQuery();
+
+        idPolicia = rs.getInt("idPolicia");
+
+        return idPolicia;
     }
 
 }

@@ -116,6 +116,7 @@ public class MultasIntroducir extends javax.swing.JDialog {
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
+        listPolicia.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(listPolicia);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
